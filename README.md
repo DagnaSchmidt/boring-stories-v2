@@ -10,7 +10,7 @@
 
 <br />
 <div align="center">
-    <img src="./frontend/public//logo-boring-stories.png" alt="Logo" width="880">
+    <img src="./frontend/public/images//logo-boring-stories.png" alt="Logo" width="880">
 
   <h3 align="center">Boring Stories - photographer's blog (v.2)</h3>
 
@@ -28,9 +28,9 @@
 </br>
 
 <div align="center">
-    <img src="./frontend/public//stories-mobile_1.png" alt="Logo" width="280">
-    <img src="./frontend/public//stories-mobile_2.png" alt="Logo" width="280">
-    <img src="./frontend/public//stories-mobile_4.png" alt="Logo" width="280">
+    <img src="./frontend/public/images//stories-mobile_1.png" alt="Logo" width="280">
+    <img src="./frontend/public/images//stories-mobile_2.png" alt="Logo" width="280">
+    <img src="./frontend/public/images//stories-mobile_4.png" alt="Logo" width="280">
 </div>
 
 </br>
