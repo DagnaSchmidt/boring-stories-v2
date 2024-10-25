@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Amulya';
+  src: url('../shared/fonts/Amulya-Variable.ttf');
+}
+
+@font-face {
+  font-family: 'Synonym';
+  src: url('../shared/fonts/Synonym-Variable.ttf');
+}
+
+.amulya {
+  font-family: 'Amulya';
+  @apply text-pale;
+}
+
+.synonym {
+  font-family: 'Synonym';
+  @apply text-pale;
+}
+
+body {
+  @apply bg-obsidian;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,10 +1,11 @@
+import Intro from "@/components/intro/Intro";
 import type { Metadata } from "next";
-import { Counter } from "./components/counter/Counter";
-
-export default function IndexPage() {
-  return <Counter />;
-}
 
 export const metadata: Metadata = {
-  title: "Redux Toolkit",
+  title: "Boring Stories",
+  description: "A blog with photos taken by average girl living in Sweden, where days are short and nights are dark and cold. Let’s get bored together!",
+};
+
+export default function IndexPage() {
+  return <Intro />
 };
