@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import MainTitle from './MainTitle';
 
 const Intro = () => {
     return (
-        <div>Intro</div>
+        <div>
+            <MainTitle />
+        </div>
     );
 };
 
