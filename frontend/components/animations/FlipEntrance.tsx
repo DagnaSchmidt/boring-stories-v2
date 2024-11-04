@@ -3,19 +3,34 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-interface FlipHoverProps {
+interface FlipEntranceProps {
     text: string;
+    startDelay?: number,
+    delay?: number,
+    size?: 'text-xl' | 'text-lg' | 'text-base' | 'text-sm',
+    font?: 'synonym' | 'amulya',
+    weight?: 'font-normal' | 'font-medium'
 }
 
-const DURATION = 0.50;
-const STAGGER = 0.05;
+const DURATION = 0.25;
 
-export const FlipHover: React.FC<FlipHoverProps> = ({ text }) => {
+export const FlipEntrance: React.FC<FlipEntranceProps> = ({
+    text,
+    startDelay = 0,
+    delay = 0.05,
+    size = 'text-base',
+    font = 'synonym',
+    weight = 'font-normal'
+}) => {
     const controls = useAnimation();
 
     useEffect(() => {
-        controls.start("visible");
-    }, [controls]);
+        const startAnimation = async () => {
+            await new Promise((resolve) => setTimeout(resolve, startDelay * 1000));
+            controls.start("visible");
+        };
+        startAnimation();
+    }, [controls, startDelay]);
 
     const letterVariants = {
         hidden: { y: "100%" },
@@ -24,26 +39,19 @@ export const FlipHover: React.FC<FlipHoverProps> = ({ text }) => {
             transition: {
                 duration: DURATION,
                 ease: "easeInOut",
-                delay: STAGGER * i,
+                delay: delay * i,
             },
         }),
-        hover: {
-            fontWeight: 100,
-            transition: { duration: 0.35 },
-        },
-        hoverAdjacent: {
-            fontWeight: 500,
-            transition: { duration: 0.35 },
-        },
-        hoverFurtherAdjacent: {
-            fontWeight: 300,
-            transition: { duration: 0.35 },
-        },
     };
 
     return (
         <motion.h2
-            className="amulya text-center text-[192px] tracking-tighter font-bold overflow-hidden px-1"
+            className={[
+                `text-center font-thin overflow-hidden`,
+                size,
+                font,
+                weight
+            ].join(' ')}
             initial="hidden"
             animate={controls}
         >
@@ -53,9 +61,6 @@ export const FlipHover: React.FC<FlipHoverProps> = ({ text }) => {
                     className="inline-block"
                     custom={idx}
                     variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    whileHover="hover"
                 >
                     {char === " " ? "\u00A0" : char}
                 </motion.span>

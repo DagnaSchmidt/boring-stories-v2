@@ -3,7 +3,11 @@ import { FlipHover } from '../animations/FlipHover';
 
 const MainTitle = () => {
     return (
-        <FlipHover text='Boring  Stories' />
+        <div
+            className='flex w-full h-full justify-center items-center'
+        >
+            <FlipHover text='Boring  Stories' />
+        </div>
     );
 };
 
