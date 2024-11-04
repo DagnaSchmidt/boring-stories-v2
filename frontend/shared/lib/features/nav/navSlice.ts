@@ -1,11 +1,13 @@
 import { createAppSlice } from "../../createAppSlice";
 
 export interface CounterSliceState {
-    isOpen: boolean
+    isOpen: boolean,
+    sort: 'all' | 'new' | null;
 };
 
 const initialState: CounterSliceState = {
-    isOpen: false
+    isOpen: false,
+    sort: null
 };
 
 export const navSlice = createAppSlice({
@@ -14,19 +16,29 @@ export const navSlice = createAppSlice({
     reducers: (create) => ({
         open: create.reducer((state) => {
             state.isOpen = true;
+            state.sort = null;
         }),
         close: create.reducer((state) => {
             state.isOpen = false;
+            state.sort = null;
         }),
         toggle: create.reducer((state) => {
             state.isOpen = !state.isOpen;
+            state.sort = null;
         }),
+        chooseAll: create.reducer((state) => {
+            state.sort = 'all'
+        }),
+        chooseNew: create.reducer((state) => {
+            state.sort = 'new'
+        })
     }),
     selectors: {
-        selectIsOpen: (nav) => nav.isOpen
+        selectIsOpen: (nav) => nav.isOpen,
+        selectNavSort: (nav) => nav.sort
     },
 });
 
-export const { open, close, toggle } = navSlice.actions;
+export const { open, close, toggle, chooseAll, chooseNew } = navSlice.actions;
 
-export const { selectIsOpen } = navSlice.selectors;
+export const { selectIsOpen, selectNavSort } = navSlice.selectors;
