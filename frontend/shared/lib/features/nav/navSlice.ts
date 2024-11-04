@@ -1,11 +1,11 @@
 import { createAppSlice } from "../../createAppSlice";
 
-export interface CounterSliceState {
+export interface NavSliceState {
     isOpen: boolean,
     sort: 'all' | 'new' | null;
 };
 
-const initialState: CounterSliceState = {
+const initialState: NavSliceState = {
     isOpen: false,
     sort: null
 };
@@ -40,5 +40,4 @@ export const navSlice = createAppSlice({
 });
 
 export const { open, close, toggle, chooseAll, chooseNew } = navSlice.actions;
-
 export const { selectIsOpen, selectNavSort } = navSlice.selectors;
