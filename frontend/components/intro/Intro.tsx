@@ -21,6 +21,7 @@ const Intro = () => {
                 <FlipEntrance
                     text='from scandinavia and other places'
                     size='text-xl'
+                    weight='font-thin'
                     startDelay={1}
                     delay={0.02}
                 />

@@ -9,7 +9,7 @@ interface FlipEntranceProps {
     delay?: number,
     size?: 'text-xl' | 'text-lg' | 'text-base' | 'text-sm',
     font?: 'synonym' | 'amulya',
-    weight?: 'font-normal' | 'font-medium'
+    weight?: 'font-thin' | 'font-normal' | 'font-medium'
 }
 
 const DURATION = 0.25;
@@ -47,7 +47,7 @@ export const FlipEntrance: React.FC<FlipEntranceProps> = ({
     return (
         <motion.h2
             className={[
-                `text-center font-thin overflow-hidden`,
+                `text-center overflow-hidden`,
                 size,
                 font,
                 weight
