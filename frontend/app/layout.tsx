@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="bg-obsidian">
+        className="bg-obsidian text-pale px-4 pb-10 lg:px-20 flex flex-col h-screen">
         <StoreProvider>
           <Nav />
           {children}

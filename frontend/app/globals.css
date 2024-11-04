@@ -23,7 +23,6 @@
 }
 
 body {
-  @apply bg-obsidian;
   min-height: 100vh;
   padding: 0;
   margin: 0;
