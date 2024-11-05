@@ -4,5 +4,6 @@ export type StoryType = {
     altText: string,
     localization: string,
     description: string,
-    images: string[]
+    images: string[],
+    createdAt?: Date
 };
