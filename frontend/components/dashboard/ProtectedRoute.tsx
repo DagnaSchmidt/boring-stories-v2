@@ -12,7 +12,6 @@ interface ProtectedRouteProps {
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     const router = useRouter();
     const token = useAppSelector(selectToken);
-    console.log(token);
 
     useEffect(() => {
         if (!token) {
