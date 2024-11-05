@@ -1,8 +1,10 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { navSlice } from "./features/nav/navSlice";
+import { userSlice } from "./features/user/userSlice";
+import { storiesSlice } from "./features/stories/storiesSlice";
 
-const rootReducer = combineSlices(navSlice);
+const rootReducer = combineSlices(navSlice, userSlice, storiesSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 

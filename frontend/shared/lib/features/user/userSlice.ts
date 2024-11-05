@@ -16,8 +16,8 @@ export const userSlice = createAppSlice({
     reducers: (create) => ({
         setToken: create.asyncThunk(
             async (password: string) => {
-                const response = await adminLogin(password);
-                return response.data;
+                const token = await adminLogin(password);
+                return token;
             },
             {
                 fulfilled: (state, action: PayloadAction<string | null>) => {
@@ -33,7 +33,7 @@ export const userSlice = createAppSlice({
         }),
     }),
     selectors: {
-        selectToken: (user: UserSliceState) => user.token,
+        selectToken: (user) => user.token,
     },
 });
 

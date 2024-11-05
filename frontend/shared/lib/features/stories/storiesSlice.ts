@@ -1,32 +1,50 @@
 import { createAppSlice } from "../../createAppSlice";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { StoryType } from "@/types/StoryType";
+import { getStories, createStory } from "./storiesAPI";
 
-export interface CounterSliceState {
-    isOpen: boolean
+export interface StoriesSliceState {
+    stories: StoryType[] | null;
 };
 
-const initialState: CounterSliceState = {
-    isOpen: false
+const initialState: StoriesSliceState = {
+    stories: null
 };
 
 export const storiesSlice = createAppSlice({
-    name: "nav",
+    name: "stories",
     initialState,
     reducers: (create) => ({
-        // open: create.reducer((state) => {
-        //     state.isOpen = true;
-        // }),
-        // close: create.reducer((state) => {
-        //     state.isOpen = false;
-        // }),
-        // toggle: create.reducer((state) => {
-        //     state.isOpen = !state.isOpen;
-        // }),
+        setStories: create.asyncThunk(
+            async () => {
+                const stories = await getStories();
+                return stories;
+            },
+            {
+                fulfilled: (state, action: PayloadAction<StoryType[]>) => {
+                    state.stories = action.payload;
+                },
+                rejected: (state) => {
+                    state.stories = null;
+                },
+            },
+        ),
+        addStory: create.asyncThunk(
+            async (data: StoryType) => {
+                const newStory: StoryType = await createStory(data);
+                return newStory;
+            },
+            {
+                fulfilled: (state, action: PayloadAction<StoryType>) => {
+                    state.stories?.push(action.payload);
+                }
+            },
+        )
     }),
     selectors: {
-        // selectIsOpen: (nav) => nav.isOpen
+        selectStories: (stories) => stories.stories
     },
 });
 
-export const { } = storiesSlice.actions;
-
-export const { } = storiesSlice.selectors;
+export const { setStories } = storiesSlice.actions;
+export const { selectStories } = storiesSlice.selectors;
