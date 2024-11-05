@@ -1,8 +1,14 @@
 import React from 'react';
+import ProtectedRoute from '@/components/dashboard/ProtectedRoute';
 
 const page = () => {
+
     return (
-        <div>dashboard page</div>
+        <ProtectedRoute>
+            <div>
+                dashboard
+            </div>
+        </ProtectedRoute>
     );
 };
 

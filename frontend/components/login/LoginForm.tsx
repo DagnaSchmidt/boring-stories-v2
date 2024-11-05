@@ -14,7 +14,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         try {
-            dispatch(setToken(password));
+            await dispatch(setToken(password));
             setPassword('');
             router.push('/dashboard');
         } catch (exception) {
