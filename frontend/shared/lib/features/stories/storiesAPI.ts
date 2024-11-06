@@ -4,7 +4,7 @@ import { selectToken } from '../user/userSlice';
 import { useAppSelector } from '../../hooks';
 
 const baseUrl = 'http://localhost:8000/api/stories';
-const token = useAppSelector(selectToken);
+
 
 export const getStories = async () => {
     const response = await axios.get(baseUrl);
@@ -12,6 +12,8 @@ export const getStories = async () => {
 };
 
 export const createStory = async (data: StoryType) => {
+    const token = useAppSelector(selectToken);
+
     const config = {
         headers: {
             Authorization: token
