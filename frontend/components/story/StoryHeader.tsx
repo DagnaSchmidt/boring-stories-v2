@@ -4,7 +4,7 @@ interface StoryHeaderProps {
     title: string,
     localization: string,
     description: string,
-    createdAt: Date
+    createdAt?: string | Date
 };
 
 const StoryHeader: React.FC<StoryHeaderProps> = ({
@@ -28,7 +28,7 @@ const StoryHeader: React.FC<StoryHeaderProps> = ({
                 <p
                     className='amulya text-sm'
                 >
-                    {createdAt.toString()} / {localization}
+                    {createdAt?.toString().slice(0, 10)} / {localization}
                 </p>
             </div>
             <p

@@ -1,24 +1,33 @@
+'use client'
+
+import React, { useEffect } from 'react';
+import { useParams } from 'next/navigation'
 import ImageGallery from '@/components/story/ImageGallery';
 import ScrollToTopContainer from '@/components/story/ScrollToTopContainer';
 import StoryHeader from '@/components/story/StoryHeader';
-import React from 'react';
+import { setActiveStory, selectActiveStory } from '@/shared/lib/features/stories/storiesSlice';
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
 
-const storyExample = {
-    id: 'string',
-    title: 'string',
-    prevImg: 'string',
-    altText: 'string',
-    localization: 'string',
-    description: 'string',
-    images: ['https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample-2.jpg', 'https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample.jpg'],
-    createdAt: new Date()
-}
+const images = ['https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample-2.jpg', 'https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample.jpg']
 
-const StoryPage = ({ params }: { params: { id: number } }) => {
+const StoryPage: React.FC = () => {
+    const params = useParams<{ id: string }>()
+    const dispatch = useAppDispatch();
+    const story = useAppSelector(selectActiveStory);
+
+    useEffect(() => {
+        dispatch(setActiveStory(params.id));
+    }, []);
+
     return (
         <ScrollToTopContainer>
-            <StoryHeader {...storyExample} />
-            <ImageGallery images={storyExample.images} />
+            {
+                story &&
+                <>
+                    <StoryHeader {...story} />
+                    <ImageGallery images={images} />
+                </>
+            }
         </ScrollToTopContainer>
     );
 };

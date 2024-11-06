@@ -50,9 +50,10 @@ export const storiesSlice = createAppSlice({
         })
     }),
     selectors: {
-        selectStories: (stories) => stories.stories
+        selectStories: (stories) => stories.stories,
+        selectActiveStory: (stories) => stories.activeStory
     },
 });
 
 export const { setStories, addStory, setActiveStory } = storiesSlice.actions;
-export const { selectStories } = storiesSlice.selectors;
+export const { selectStories, selectActiveStory } = storiesSlice.selectors;
