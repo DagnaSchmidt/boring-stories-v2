@@ -5,10 +5,12 @@ import { getStories, createStory } from "./storiesAPI";
 
 export interface StoriesSliceState {
     stories: StoryType[] | null;
+    activeStory: StoryType | null;
 };
 
 const initialState: StoriesSliceState = {
-    stories: null
+    stories: null,
+    activeStory: null
 };
 
 export const storiesSlice = createAppSlice({
@@ -39,12 +41,19 @@ export const storiesSlice = createAppSlice({
                     state.stories?.push(action.payload);
                 }
             },
-        )
+        ),
+        setActiveStory: create.reducer((state, action: PayloadAction<string>) => {
+            const newActiveStory = state.stories?.find(i => i.id === action.payload);
+            if (newActiveStory) {
+                state.activeStory = newActiveStory;
+            }
+        })
     }),
     selectors: {
-        selectStories: (stories) => stories.stories
+        selectStories: (stories) => stories.stories,
+        selectActiveStory: (stories) => stories.activeStory
     },
 });
 
-export const { setStories } = storiesSlice.actions;
-export const { selectStories } = storiesSlice.selectors;
+export const { setStories, addStory, setActiveStory } = storiesSlice.actions;
+export const { selectStories, selectActiveStory } = storiesSlice.selectors;

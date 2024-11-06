@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import MainTitle from './MainTitle';
 import { FlipEntrance } from '../animations/FlipEntrance';
 
-const Intro = () => {
+const Intro: React.FC = () => {
     return (
         <>
             <MainTitle />
