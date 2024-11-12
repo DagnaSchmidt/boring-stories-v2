@@ -13,10 +13,10 @@ const ExpandingBorder: React.FC<ExpandingBorderProps> = ({ children }) => {
     const isActive = useAppSelector(selectIsOpen);
     return (
         <div
-            className="relative w-full h-24"
+            className="relative w-full h-24 mb-2"
         >
             <motion.div
-                className="absolute -z-10 border-4 border-pale"
+                className="absolute -z-10 border-4 border-pale bg-obsidian"
                 initial={{
                     width: "4px",
                     height: "4px",
@@ -38,7 +38,7 @@ const ExpandingBorder: React.FC<ExpandingBorderProps> = ({ children }) => {
             />
             <div
                 className={[
-                    'z-10 h-full flex items-center px-5',
+                    'z-10 flex items-center px-5 h-24',
                     isActive ? 'justify-between' : 'justify-end'
                 ].join(' ')}
             >

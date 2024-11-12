@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react';
-import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import ExpandingBorder from '../animations/ExpandingBorder';
 import { selectIsOpen, selectNavSort } from '@/shared/lib/features/nav/navSlice';
 import { setStories, selectStories } from '@/shared/lib/features/stories/storiesSlice';
@@ -10,22 +10,26 @@ import NavButton from './NavButton';
 import NavNewStoriesButton from './NavNewStoriesButton';
 import NavAllStoriesButton from './NavAllStoriesButton';
 import NavRandomStoryButton from './NavRandomStoryButton';
+import NavStoryPreviewContainer from './NavStoryPreviewContainer';
+import NavLogoButton from './NavLogoButton';
 
 const Nav = () => {
     const dispatch = useAppDispatch();
+    const pathname = usePathname();
     const isOpen = useAppSelector(selectIsOpen);
     const sort = useAppSelector(selectNavSort);
     const stories = useAppSelector(selectStories);
-
-    console.log(stories);
 
     useEffect(() => {
         dispatch(setStories());
     }, []);
 
     return (
-        <>
+        <div>
             <ExpandingBorder>
+                {
+                    pathname.length > 1 && isOpen === false && <NavLogoButton />
+                }
                 {
                     isOpen &&
                     <>
@@ -37,10 +41,9 @@ const Nav = () => {
                 <NavButton />
             </ExpandingBorder>
             {
-                sort !== null &&
-                <Link href='/story/659febfa0153814c454f1ce7'>LIST OF STORIES TO CHOOSE</Link>
+                sort !== null && <NavStoryPreviewContainer />
             }
-        </>
+        </div>
     );
 };
 
