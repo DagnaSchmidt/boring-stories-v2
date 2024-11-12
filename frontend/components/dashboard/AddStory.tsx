@@ -1,13 +1,21 @@
 'use client'
 
 import React, { useState } from 'react';
-import { StoryType } from '@/types/StoryType';
 import { useAppDispatch } from '@/shared/lib/hooks';
 
 const AddStory = () => {
     const dispatch = useAppDispatch();
 
-    const [formData, setFormData] = useState<StoryType>({
+    type DataType = {
+        title: string,
+        prevImg: string,
+        altText: string,
+        localization: string,
+        description: string,
+        images: string[]
+    };
+
+    const [formData, setFormData] = useState<DataType>({
         title: '',
         prevImg: '',
         altText: '',
