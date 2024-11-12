@@ -2,8 +2,12 @@ import { useAppSelector } from "./hooks";
 import { selectActiveStory, selectStories } from "./features/stories/storiesSlice";
 import { selectIsOpen, selectNavSort } from "./features/nav/navSlice";
 
-export const stories = useAppSelector(selectStories);
-export const activeStory = useAppSelector(selectActiveStory);
+export const selectors = () => {
+    const stories = useAppSelector(selectStories);
+    const activeStory = useAppSelector(selectActiveStory);
 
-export const isNavOpen = useAppSelector(selectIsOpen);
-export const navSort = useAppSelector(selectNavSort);
+    const isNavOpen = useAppSelector(selectIsOpen);
+    const navSort = useAppSelector(selectNavSort);
+
+    return { stories, activeStory, isNavOpen, navSort }
+};
