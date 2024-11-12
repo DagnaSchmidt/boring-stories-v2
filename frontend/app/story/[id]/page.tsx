@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import ImageGallery from '@/components/story/ImageGallery';
 import ScrollToTopContainer from '@/components/story/ScrollToTopContainer';
 import StoryHeader from '@/components/story/StoryHeader';
+import OpacityEntrance from '@/components/animations/OpacityEntrance';
 import { setActiveStory, selectActiveStory } from '@/shared/lib/features/stories/storiesSlice';
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
 
@@ -23,10 +24,12 @@ const StoryPage: React.FC = () => {
         <ScrollToTopContainer>
             {
                 story &&
-                <>
-                    <StoryHeader {...story} />
-                    <ImageGallery images={images} />
-                </>
+                <OpacityEntrance>
+                    <>
+                        <StoryHeader {...story} />
+                        <ImageGallery images={images} />
+                    </>
+                </OpacityEntrance>
             }
         </ScrollToTopContainer>
     );
