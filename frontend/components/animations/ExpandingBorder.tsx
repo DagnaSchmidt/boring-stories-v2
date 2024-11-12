@@ -16,7 +16,7 @@ const ExpandingBorder: React.FC<ExpandingBorderProps> = ({ children }) => {
             className="relative w-full h-24"
         >
             <motion.div
-                className="absolute -z-10 border-4 border-pale"
+                className="absolute -z-10 border-4 border-pale bg-obsidian"
                 initial={{
                     width: "4px",
                     height: "4px",

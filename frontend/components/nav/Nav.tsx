@@ -10,6 +10,7 @@ import NavButton from './NavButton';
 import NavNewStoriesButton from './NavNewStoriesButton';
 import NavAllStoriesButton from './NavAllStoriesButton';
 import NavRandomStoryButton from './NavRandomStoryButton';
+import NavStoryPreviewContainer from './NavStoryPreviewContainer';
 
 const Nav = () => {
     const dispatch = useAppDispatch();
@@ -38,7 +39,8 @@ const Nav = () => {
             </ExpandingBorder>
             {
                 sort !== null &&
-                <Link href='/story/659febfa0153814c454f1ce7'>LIST OF STORIES TO CHOOSE</Link>
+                <NavStoryPreviewContainer />
+                // <Link href='/story/659febfa0153814c454f1ce7'>LIST OF STORIES TO CHOOSE</Link>
             }
         </>
     );
