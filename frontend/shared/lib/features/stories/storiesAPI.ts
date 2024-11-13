@@ -3,7 +3,7 @@ import { StoryType } from '@/types/StoryType';
 import { selectToken } from '../user/userSlice';
 import { useAppSelector } from '../../hooks';
 
-const baseUrl = 'http://localhost:8000/api/stories';
+const baseUrl = 'api/stories';
 
 
 export const getStories = async () => {
