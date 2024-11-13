@@ -4,6 +4,15 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*/',
+        destination: 'http://localhost:8000/api/:path*/'
+      }
+    ]
+  },
+  trailingSlash: true,
 };
 
 export default nextConfig;
