@@ -7,12 +7,12 @@ const Intro: React.FC = () => {
         <>
             <MainTitle />
             <div
-                className='flex justify-between'
+                className='flex flex-col-reverse gap-6 sm:flex-row sm:justify-between'
             >
                 <a href='https://www.instagram.com/b.oring_stories/' target='_blank'>
                     <FlipEntrance
                         text='instagram'
-                        size='text-xl'
+                        size='text-md sm:text-lg lg:text-xl'
                         weight='font-medium'
                         startDelay={1}
                         delay={0.02}
@@ -20,7 +20,7 @@ const Intro: React.FC = () => {
                 </a>
                 <FlipEntrance
                     text='from scandinavia and other places'
-                    size='text-xl'
+                    size='text-md sm:text-lg lg:text-xl'
                     weight='font-thin'
                     startDelay={1}
                     delay={0.02}

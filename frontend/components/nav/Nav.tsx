@@ -18,7 +18,6 @@ const Nav = () => {
     const pathname = usePathname();
     const isOpen = useAppSelector(selectIsOpen);
     const sort = useAppSelector(selectNavSort);
-    const stories = useAppSelector(selectStories);
 
     useEffect(() => {
         dispatch(setStories());
@@ -32,11 +31,13 @@ const Nav = () => {
                 }
                 {
                     isOpen &&
-                    <>
+                    <div
+                        className='flex flex-col sm:flex-row sm:gap-6 lg:gap-12'
+                    >
                         <NavNewStoriesButton />
                         <NavAllStoriesButton />
                         <NavRandomStoryButton />
-                    </>
+                    </div>
                 }
                 <NavButton />
             </ExpandingBorder>

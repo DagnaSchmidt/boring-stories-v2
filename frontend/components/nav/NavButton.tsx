@@ -11,7 +11,7 @@ const NavButton = () => {
     return (
         <button
             onClick={() => dispatch(toggle())}
-            className='justify-self-end synonym font-medium text-xl tracking-widest text-nowrap'
+            className='justify-self-end synonym font-medium text-md sm:text-lg lg:text-xl tracking-widest text-nowrap'
         >
             {isOpen ? 'close' : 'start here'}
         </button>

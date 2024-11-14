@@ -18,7 +18,7 @@ export const FlipHover: React.FC<FlipHoverProps> = ({ text }) => {
     }, [controls]);
 
     const letterVariants = {
-        hidden: { y: "100%" },
+        hidden: { y: "110%" },
         visible: (i: number) => ({
             y: 0,
             transition: {
@@ -43,7 +43,7 @@ export const FlipHover: React.FC<FlipHoverProps> = ({ text }) => {
 
     return (
         <motion.h2
-            className="amulya text-center text-[192px] tracking-tighter font-bold overflow-hidden px-1"
+            className="amulya text-center tracking-tighter font-bold overflow-hidden text-[48px] sm:text-[80px] md:text-[112px] lg:text-[144px] xl:text-[176px] px-1 md:pb-2 lg:pb-6"
             initial="hidden"
             animate={controls}
         >

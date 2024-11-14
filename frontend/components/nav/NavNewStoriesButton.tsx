@@ -17,7 +17,7 @@ const NavNewStoriesButton = () => {
             <button
                 onClick={() => dispatch(chooseNew())}
                 className={[
-                    'amulya text-xl hover:opacity-100',
+                    'amulya text-sm sm:text-lg lg:text-xl hover:opacity-100',
                     sort === 'new' ? 'opacity-100 hover:cursor-default' : 'opacity-70'
                 ].join(' ')}
             >

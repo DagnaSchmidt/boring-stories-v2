@@ -7,7 +7,7 @@ interface FlipEntranceProps {
     text: string;
     startDelay?: number,
     delay?: number,
-    size?: 'text-xl' | 'text-lg' | 'text-base' | 'text-sm',
+    size?: string
     font?: 'synonym' | 'amulya',
     weight?: 'font-thin' | 'font-normal' | 'font-medium'
 }

@@ -6,7 +6,7 @@ const MainTitle = () => {
         <div
             className='flex w-full h-full justify-center items-center'
         >
-            <FlipHover text='Boring  Stories' />
+            <FlipHover text='Boring Stories' />
         </div>
     );
 };

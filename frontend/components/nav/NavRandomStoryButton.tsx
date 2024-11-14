@@ -27,7 +27,7 @@ const NavRandomStoryButton = () => {
             duration={0.8}
         >
             <button
-                className='amulya text-xl hover:opacity-100 opacity-70'
+                className='amulya text-sm sm:text-lg lg:text-xl hover:opacity-100 opacity-70'
                 onClick={handleRandomStory}
             >
                 random story
