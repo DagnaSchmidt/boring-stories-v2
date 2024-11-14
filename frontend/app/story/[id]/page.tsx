@@ -6,15 +6,14 @@ import ImageGallery from '@/components/story/ImageGallery';
 import ScrollToTopContainer from '@/components/story/ScrollToTopContainer';
 import StoryHeader from '@/components/story/StoryHeader';
 import OpacityEntrance from '@/components/animations/OpacityEntrance';
-import { setActiveStory, selectActiveStory } from '@/shared/lib/features/stories/storiesSlice';
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
-
-const images = ['https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample-2.jpg', 'https://res.cloudinary.com/dcnobzztr/image/upload/v1730709829/cld-sample.jpg']
+import { setActiveStory } from '@/shared/lib/features/stories/storiesSlice';
+import { useAppDispatch } from '@/shared/lib/hooks';
+import { useSelectors } from '@/shared/lib/hooks';
 
 const StoryPage: React.FC = () => {
     const params = useParams<{ id: string }>()
     const dispatch = useAppDispatch();
-    const story = useAppSelector(selectActiveStory);
+    const { activeStory } = useSelectors();
 
     useEffect(() => {
         dispatch(setActiveStory(params.id));
@@ -23,11 +22,14 @@ const StoryPage: React.FC = () => {
     return (
         <ScrollToTopContainer>
             {
-                story &&
+                activeStory &&
                 <OpacityEntrance>
                     <>
-                        <StoryHeader {...story} />
-                        <ImageGallery images={images} />
+                        <StoryHeader {...activeStory} />
+                        {
+                            activeStory.imagesURLs &&
+                            <ImageGallery images={activeStory.imagesURLs} />
+                        }
                     </>
                 </OpacityEntrance>
             }

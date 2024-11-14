@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useSelectors } from '@/shared/lib/hooks';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { close } from '@/shared/lib/features/nav/navSlice';
+import OpacityEntrance from '../animations/OpacityEntrance';
 
 const NavRandomStoryButton = () => {
     const router = useRouter();
@@ -21,12 +22,17 @@ const NavRandomStoryButton = () => {
     };
 
     return (
-        <button
-            className='amulya text-xl hover:opacity-100 opacity-70'
-            onClick={handleRandomStory}
+        <OpacityEntrance
+            delay={0.20}
+            duration={0.8}
         >
-            random story
-        </button>
+            <button
+                className='amulya text-xl hover:opacity-100 opacity-70'
+                onClick={handleRandomStory}
+            >
+                random story
+            </button>
+        </OpacityEntrance>
     );
 };
 

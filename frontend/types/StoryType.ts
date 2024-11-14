@@ -6,5 +6,6 @@ export type StoryType = {
     localization: string,
     description: string,
     images: string[],
+    imagesURLs?: string[],
     createdAt?: Date
 };
