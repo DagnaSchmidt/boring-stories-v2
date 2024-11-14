@@ -12,7 +12,7 @@ const SingleImage: React.FC<SingleImageProps> = ({
 }) => {
     return (
         <Image
-            className='w-full lg:max-h-[600px] lg:object-contain'
+            className='w-full lg:max-h-[600px] lg:object-contain h-auto'
             src={src}
             alt={alt}
             width={800}

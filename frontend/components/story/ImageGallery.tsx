@@ -18,7 +18,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
                 }
             </div>
         </>
-
     );
 };
 

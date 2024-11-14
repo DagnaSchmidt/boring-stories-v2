@@ -15,11 +15,11 @@ const ScrollToTopContainer: React.FC<ScrollToTopContainerProps> = ({ children })
 
     return (
         <div
-            className='w-full h-full relative'
+            className='w-full max-h-dvh h-[90%] scrollbar-hide relative'
         >
             <button
                 onClick={handleScroll}
-                className='absolute right-0 bottom-2 px-2 pb-2 h-6 rounded z-10 bg-[#1E1E1E80] synonym text-xl font-medium tracking-wider hover:cursor-pointer'
+                className='absolute right-0 bottom-2 px-2 pb-5 h-8 rounded z-10 bg-[#1E1E1E80] synonym text-xl font-medium tracking-wider hover:cursor-pointer'
             >
                 up
             </button>
@@ -30,7 +30,6 @@ const ScrollToTopContainer: React.FC<ScrollToTopContainerProps> = ({ children })
                 {children}
             </div>
         </div>
-
     );
 };
 
